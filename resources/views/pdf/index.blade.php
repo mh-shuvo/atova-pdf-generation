@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{asset('css/certificate.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/certificate.css') }}">
     <style>
+        /* Font Faces */
         @font-face {
             font-family: 'MyFont';
             src: url('{{ public_path("fonts/MyFont-Regular.ttf") }}') format('truetype');
@@ -17,13 +18,415 @@
             font-weight: bold;
             font-style: normal;
         }
-        body { font-family: 'MyFont', sans-serif; }
+        @font-face {
+            font-family: 'gardenHidaleya';
+            src: url('{{ storage_path("fonts/gardenHidaleya.ttf") }}') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'MinionPro-Regular';
+            src: url('{{ storage_path("fonts/MinionPro-Regular.otf") }}') format('truetype');
+            font-weight: 100;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'MinionPro-Semibold';
+            src: url('{{ storage_path("fonts/MinionPro-Semibold.otf") }}') format('truetype');
+        }
+        @font-face {
+            font-family: 'MinionPro-Bold';
+            src: url('{{ storage_path("fonts/MinionPro-Bold.otf") }}') format('truetype');
+        }
+
+        /* Reset & Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #F4F2E5;
+        }
+
+        body {
+            font-family: 'MyFont', sans-serif;
+        }
+
+        .main {
+            padding: 30px;
+        }
+
+        /* Watermark Styles */
+        .watermark-border {
+            position: relative;
+            width: 180px;
+            height: 451px;
+        }
+
+        .watermark-border-left,
+        .watermark-border-right,
+        .watermark-border-upper,
+        .watermark-border-down {
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        .watermark-border-left {
+            top: 50%;
+            left: 0;
+        }
+
+        .watermark-border-right {
+            top: 50%;
+            right: 0;
+        }
+
+        .watermark-border-upper {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .watermark-border-down {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .watermark-border-left img,
+        .watermark-border-right img,
+        .watermark-border-upper img,
+        .watermark-border-down img {
+            display: block;
+            height: auto;
+            width: auto;
+            opacity: 0.5;
+        }
+
+        /* Certificate Content */
+        .certificate-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 80px 70px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .certificate-logo {
+            opacity: 1;
+        }
+
+        .certificate-word {
+            margin-top: 30px;
+        }
+
+        .certificate-word-completion {
+            margin-top: 20px;
+        }
+
+        /* Rectangle Images */
+        .rectangle-left,
+        .rectangle-right,
+        .left-side-down-rectangle,
+        .right-side-down-rectangle {
+            position: absolute;
+        }
+
+        .rectangle-left {
+            top: 20%;
+            left: 0;
+            transform: translateY(-40%);
+        }
+
+        .serial-left {
+            position: absolute;
+            top: -30px;
+            left: 15%;
+            font-family: 'MinionPro-Bold';
+            font-size: 22px;
+            z-index: 5;
+        }
+
+        .rectangle-right {
+            top: 20%;
+            right: 0;
+            transform: translateY(-60%);
+        }
+
+        .left-side-down-rectangle {
+            bottom: 6%;
+            left: 0;
+            transform: translateY(-5%);
+        }
+
+        .right-side-down-rectangle {
+            bottom: 6%;
+            right: 0;
+            transform: translateY(-10%);
+        }
+
+        .rectangle-left img,
+        .rectangle-right img,
+        .left-side-down-rectangle img,
+        .right-side-down-rectangle img {
+            display: block;
+            width: 85%;
+            height: auto;
+            opacity: 1;
+        }
+
+        /* Text Styles */
+        .user-name {
+            font-family: 'gardenHidaleya';
+            font-size: 64px;
+            line-height: 0px;
+            margin-top: 85px;
+        }
+
+        .student-id {
+            font-family: 'MinionPro-Regular';
+            line-height: 0px;
+            margin-top: 50px;
+            letter-spacing: 2px;
+            font-size: 25px;
+            font-weight: 100;
+        }
+
+        .student-id span {
+            font-size: 22px;
+            font-family: 'MinionPro-Bold';
+            font-weight: 400;
+            margin: 0 10px;
+        }
+
+        .course-name {
+            font-family: 'MinionPro-Semibold';
+            font-size: 44.73px;
+            line-height: 0px;
+            margin-top: 60px;
+        }
+
+        .course-duration {
+            font-family: 'MinionPro-Regular';
+            line-height: 0px;
+            margin-top: 50px;
+            letter-spacing: 2px;
+            font-size: 23px;
+            font-weight: 100;
+        }
+
+        .course-duration span {
+            font-family: 'MinionPro-Bold';
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        /* ISO Certified Logo */
+        .iso-certified-logo {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .iso-certified-logo img {
+            width: 141.32px;
+            height: 125.67px;
+            opacity: 1;
+        }
+
+        .iso-certified-logo-left {
+            position: absolute;
+            bottom: 130px;
+            left: 170px;
+            text-align: center;
+        }
+
+        .iso-certified-logo-left p:first-child {
+            font-family: 'MinionPro-Bold';
+            font-size: 18px;
+        }
+
+        .iso-certified-logo-left span {
+            display: block;
+            width: 204.85px;
+            height: 2px;
+            background-color: #B73332;
+            margin: 10px auto 5px;
+        }
+
+        .iso-certified-logo-left p:last-child {
+            font-family: 'MinionPro-Bold';
+            font-size: 18px;
+            color: #B73332;
+            margin-top: -7px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            position: absolute;
+            bottom: 70px;
+            left: 70px;
+            text-align: left;
+        }
+
+        .contact-info p {
+            font-family: 'MinionPro-Regular';
+            font-size: 16px;
+            margin: 0 0;
+            font-weight: 100;
+        }
+
+        .contact-info .icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 2px;
+            margin-top: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-info .icon img {
+            vertical-align: middle;
+        }
+
+        /* Authorized Signature */
+        .authorized-signature {
+            position: absolute;
+            bottom: 130px;
+            right: 170px;
+            text-align: center;
+        }
+
+        .authorized-signature img {
+            width: 100px;
+            height: 50px;
+            margin-bottom: 0;
+            opacity: 1;
+        }
+
+        .authorized-signature span {
+            display: block;
+            width: 204.85px;
+            height: 2px;
+            background-color: #B73332;
+            margin: 10px auto 5px;
+        }
+
+        .authorized-signature p {
+            font-family: 'MinionPro-Regular';
+            font-size: 18px;
+            color: #B73332;
+        }
+
+        /* QR Code */
+        .qr-code {
+            position: absolute;
+            bottom: 80px;
+            right: 70px;
+        }
+
+        .qr-code img {
+            width: 64.17px;
+            height: 64.17px;
+        }
     </style>
-    <title>{{$title}}</title>
+    <title>{{ $title }}</title>
 </head>
 <body>
-    <h1>
-        {{$heading}}
-    </h1>
+    <div class="watermark-container">
+
+        <!-- Watermarks -->
+        <div class="watermark-border-left">
+            <img src="{{ public_path('images/side-watermark-left.png') }}" alt="left side watermark"/>
+        </div>
+        <div class="watermark-border-right">
+            <img src="{{ public_path('images/side-watermark-right.png') }}" alt="right side watermark"/>
+        </div>
+        <div class="watermark-border-upper">
+            <img src="{{ public_path('images/upper-watermark.png') }}" alt="upper watermark"/>
+        </div>
+        <div class="watermark-border-down">
+            <img src="{{ public_path('images/down-watermark.png') }}" alt="down watermark"/>
+        </div>
+
+        <!-- Center Certificate Content -->
+        <div class="certificate-content">
+            <div class="certificate-logo">
+                <img src="{{ public_path('images/logo.png') }}" alt="logo"/>
+            </div>
+
+            <div class="certificate-word">
+                <img src="{{ public_path('images/certificate.png') }}" alt="certificate"/>
+            </div>
+
+            <div class="certificate-word-completion">
+                <img src="{{ public_path('images/completion.png') }}" alt="completion"/>
+            </div>
+
+            <div>
+                <p class="user-name">Abdullah Al Mamun</p>
+                <p class="student-id">bearing student ID: <span>AT-0275</span> has successfully completed the</p>
+                <p class="course-name">Professional Graphic Design</p>
+                <p class="course-duration">conducted from <span>January 2025 to May 2025</span></p>
+            </div>
+
+            <!-- Rectangle Images -->
+            <div class="rectangle-left">
+                <img src="{{ public_path('images/rectangle-left.png') }}" alt="rectangle-left"/>
+                <span class="serial-left">SL : 01</span>
+            </div>
+
+            <div class="rectangle-right">
+                <img src="{{ public_path('images/rectangle-right.png') }}" alt="rectangle-right"/>
+            </div>
+
+            <div class="left-side-down-rectangle">
+                <img src="{{ public_path('images/left-side-down-rectangle.png') }}" alt="left-side-down-rectangle"/>
+            </div>
+
+            <div class="right-side-down-rectangle">
+                <img src="{{ public_path('images/right-side-down-rectangle.png') }}" alt="right-side-down-rectangle"/>
+            </div>
+        </div>
+
+        <!-- ISO Certified Logo -->
+        <div class="iso-certified-logo">
+            <img src="{{ public_path('images/iso-certified-logo.png') }}" alt="iso-certified-logo"/>
+        </div>
+
+        <!-- Date of Issue -->
+        <div class="iso-certified-logo-left">
+            <p>01.01.2026</p>
+            <span></span>
+            <p>Date of Issue</p>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <p><span class="icon"><img src="{{ public_path('images/mail.png') }}" alt="mail"/></span> info@atovatech.com</p>
+            <p><span class="icon"><img src="{{ public_path('images/map.png') }}" alt="map"/></span> Mohammadpur Bus Stand, Dhaka</p>
+        </div>
+
+        <!-- Authorized Signature -->
+        <div class="authorized-signature">
+            <img src="{{ public_path('images/Signature.png') }}" alt="signature"/>
+            <span></span>
+            <p>Authorized Signature</p>
+        </div>
+
+        <!-- QR Code -->
+        <div class="qr-code">
+            <img src="{{ public_path('images/scan.png') }}" alt="scan"/>
+        </div>
+
+    </div>
 </body>
 </html>

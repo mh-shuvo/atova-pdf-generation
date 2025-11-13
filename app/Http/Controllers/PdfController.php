@@ -13,6 +13,6 @@ class PdfController extends Controller
             'heading'=>'Laravel PDF Generator',
         ];
         $pdf = Pdf::loadView('pdf.index', $data)->setPaper('a4', 'landscape');
-        return $pdf->stream('invoice.css');
+        return $pdf->stream('invoice.pdf');
     }
 }
