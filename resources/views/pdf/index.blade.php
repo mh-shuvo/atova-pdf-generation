@@ -102,7 +102,7 @@
             display: block;
             height: auto;
             width: auto;
-            opacity: 0.5;
+           
         }
 
         /* Certificate Content */
