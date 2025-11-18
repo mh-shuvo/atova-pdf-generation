@@ -82,18 +82,22 @@
        }
 
        .watermark-border-upper {
-       position: absolute;
-       top: 0;
-       left: 50%;
-       transform: translateX(-50%);
-       }
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) rotate(90deg);
+        transform-origin: center center;
+        margin-top: -160px;
+        }
 
-       .watermark-border-down {
-       position: absolute;
-       bottom: 0;
-       left: 50%;
-       transform: translateX(-50%);
-       }
+        .watermark-border-down {
+         position: absolute;
+         bottom: 0;
+         left: 50%;
+         transform: translateX(-50%) rotate(90deg);
+         transform-origin: center center;
+         margin-bottom: -160px;
+         }
 
         .watermark-border-left img,
         .watermark-border-right img,
@@ -102,7 +106,6 @@
             display: block;
             height: auto;
             width: auto;
-           
         }
 
         /* Certificate Content */
@@ -227,7 +230,7 @@
         /* ISO Certified Logo */
         .iso-certified-logo {
             position: absolute;
-            bottom: 60px;
+            bottom: 65px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -349,10 +352,10 @@
             <img src="{{ public_path('images/side-watermark-right.png') }}" alt="right side watermark"/>
         </div>
         <div class="watermark-border-upper">
-            <img src="{{ public_path('images/upper-watermark.png') }}" alt="upper watermark"/>
+            <img src="{{ public_path('images/side-watermark-left.png') }}" alt="upper watermark"/>
         </div>
         <div class="watermark-border-down">
-            <img src="{{ public_path('images/down-watermark.png') }}" alt="down watermark"/>
+            <img src="{{ public_path('images/side-watermark-right.png') }}" alt="down watermark"/>
         </div>
 
         <!-- Center Certificate Content -->
