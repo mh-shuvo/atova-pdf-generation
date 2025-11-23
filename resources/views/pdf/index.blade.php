@@ -63,49 +63,54 @@
         /* Watermark Styles */
         .watermark-border {
             position: relative;
-            width: 180px;
-            height: 451px;
         }
 
       .watermark-border-left {
        position: absolute;
+       width: 150px;
+       height: 450px;
        top: 50%;
-       left: 0;
+       left: -2px;
        transform: translateY(-50%);
+       opacity: 0.8;
        }
 
        .watermark-border-right {
        position: absolute;
        top: 50%;
-       right: 0;
+       right: 0px;
        transform: translateY(-50%);
+       width: 150px;
+       height: 460px;
+       opacity: 0.8;
        }
 
        .watermark-border-upper {
         position: absolute;
-        top: 0;
+        top: -5px;
         left: 50%;
-        transform: translateX(-50%) rotate(90deg);
-        transform-origin: center center;
-        margin-top: -160px;
-        }
+        transform: translateX(-50%);
+        width: 470px;
+        height: 140px;
+       }
 
-        .watermark-border-down {
-         position: absolute;
-         bottom: 0;
-         left: 50%;
-         transform: translateX(-50%) rotate(90deg);
-         transform-origin: center center;
-         margin-bottom: -160px;
-         }
+     .watermark-border-down {
+      position: absolute;
+      bottom: -2px;
+      left: 52%;
+      transform: translateX(-50%);
+      width: 470px;
+      height: 140px;
+
+      }
 
         .watermark-border-left img,
         .watermark-border-right img,
         .watermark-border-upper img,
         .watermark-border-down img {
             display: block;
-            height: auto;
-            width: auto;
+            height: 100%;
+            width: 100%;
         }
 
         /* Certificate Content */
@@ -120,14 +125,21 @@
 
         .certificate-logo {
             opacity: 1;
+            width: 242.839px;
+            height: 78.981px;
+            margin: auto;
         }
 
         .certificate-word {
-            margin-top: 30px;
+            width: 478.143px;
+            height: 44.678px;
+            margin: 28px auto 0 auto;
         }
 
         .certificate-word-completion {
-            margin-top: 20px;
+            width: 403.758px;
+            height: 11.332px;
+            margin: 16px auto 0 auto;
         }
 
         /* Rectangle Images */
@@ -140,14 +152,14 @@
 
         .rectangle-left {
             top: 20%;
-            left: 0;
+            left: 10px;
             transform: translateY(-40%);
         }
 
         .serial-left {
             position: absolute;
             top: -30px;
-            left: 15%;
+            left: 8%;
             font-family: 'MinionPro-Bold';
             font-size: 22px;
             z-index: 5;
@@ -155,19 +167,19 @@
 
         .rectangle-right {
             top: 20%;
-            right: 0;
+            right: 10px;
             transform: translateY(-60%);
         }
 
         .left-side-down-rectangle {
-            bottom: 6%;
-            left: 0;
+            bottom: 5%;
+            left: 10px;
             transform: translateY(-5%);
         }
 
         .right-side-down-rectangle {
-            bottom: 6%;
-            right: 0;
+            bottom: 4%;
+            right: 10px;
             transform: translateY(-10%);
         }
 
@@ -176,9 +188,9 @@
         .left-side-down-rectangle img,
         .right-side-down-rectangle img {
             display: block;
-            width: 85%;
-            height: auto;
             opacity: 1;
+            width: 193.601px;
+            height: 193.281px;
         }
 
         /* Text Styles */
@@ -245,7 +257,7 @@
 
         .iso-certified-logo-left {
             position: absolute;
-            bottom: 130px;
+            bottom: 135px;
             left: 170px;
             text-align: center;
         }
@@ -301,14 +313,14 @@
         /* Authorized Signature */
         .authorized-signature {
             position: absolute;
-            bottom: 130px;
-            right: 170px;
+            bottom: 135px;
+            right: 155px;
             text-align: center;
         }
 
         .authorized-signature img {
-            width: 100px;
-            height: 50px;
+            width: 117.937px;
+            height: 51.862px;
             margin-bottom: 0;
             opacity: 1;
         }
@@ -330,8 +342,8 @@
         /* QR Code */
         .qr-code {
             position: absolute;
-            bottom: 80px;
-            right: 70px;
+            bottom: 70px;
+            right: 69px;
         }
 
         .qr-code img {
@@ -346,16 +358,17 @@
 
         <!-- Watermarks -->
         <div class="watermark-border-left">
-            <img src="{{ public_path('images/side-watermark-left.png') }}" alt="left side watermark"/>
+            <img src="{{ public_path('images/watermark-left.png') }}" alt="left side watermark"/>
+            
         </div>
         <div class="watermark-border-right">
-            <img src="{{ public_path('images/side-watermark-right.png') }}" alt="right side watermark"/>
+            <img src="{{ public_path('images/watermark-right.png') }}" alt="right side watermark"/>
         </div>
         <div class="watermark-border-upper">
-            <img src="{{ public_path('images/side-watermark-left.png') }}" alt="upper watermark"/>
+            <img src="{{ public_path('images/watermark-up.png') }}" alt="upper watermark"/>
         </div>
         <div class="watermark-border-down">
-            <img src="{{ public_path('images/side-watermark-right.png') }}" alt="down watermark"/>
+            <img src="{{ public_path('images/watermark-down.png') }}" alt="down watermark"/>
         </div>
 
         <!-- Center Certificate Content -->
