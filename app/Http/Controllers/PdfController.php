@@ -15,4 +15,14 @@ class PdfController extends Controller
         $pdf = Pdf::loadView('pdf.index', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('invoice.pdf');
     }
+
+    public function printPdf()
+    {
+        $data=[
+            'title'=>'Laravel PDF Generator',
+            'heading'=>'Laravel PDF Generator',
+        ];
+        $pdf = Pdf::loadView('pdf.print', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('invoice-print.pdf');
+    }
 }

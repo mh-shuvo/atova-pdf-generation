@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/certificate', [PdfController::class, 'index']);
+Route::get('/print', [PdfController::class, 'printPdf'])->name('print.pdf');
