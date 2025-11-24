@@ -7,18 +7,6 @@
     <style>
         /* Font Faces */
         @font-face {
-            font-family: 'MyFont';
-            src: url('{{ public_path("fonts/MyFont-Regular.ttf") }}') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'MyFont';
-            src: url('{{ public_path("fonts/MyFont-Bold.ttf") }}') format('truetype');
-            font-weight: bold;
-            font-style: normal;
-        }
-        @font-face {
             font-family: 'gardenHidaleya';
             src: url('{{ storage_path("fonts/gardenHidaleya.ttf") }}') format('truetype');
             font-weight: 400;
@@ -67,7 +55,7 @@
 
       .watermark-border-left {
        position: absolute;
-       width: 150px;
+       width: 119.1176 px;
        height: 450px;
        top: 50%;
        left: -2px;
@@ -80,27 +68,27 @@
        top: 50%;
        right: 0px;
        transform: translateY(-50%);
-       width: 150px;
-       height: 460px;
+       width: 119.1176px;
+       height: 450px;
        opacity: 0.8;
        }
 
        .watermark-border-upper {
         position: absolute;
-        top: -5px;
+        top: 0px;
         left: 50%;
         transform: translateX(-50%);
-        width: 470px;
-        height: 140px;
+        width: 450px;
+        height: 119.1176px;
        }
 
      .watermark-border-down {
       position: absolute;
-      bottom: -2px;
+      bottom: 0px;
       left: 52%;
       transform: translateX(-50%);
       width: 470px;
-      height: 140px;
+      height: 119.1176px;
 
       }
 
@@ -122,23 +110,25 @@
             max-width: 900px;
             margin: 0 auto;
         }
-
-        .certificate-logo {
+        .certificate-logo{
+            margin-top: -38px !important;
+        }
+        .certificate-logo img {
             opacity: 1;
-            width: 242.839px;
-            height: 78.981px;
+            width: 255px;
+            height: auto;
             margin: auto;
         }
 
-        .certificate-word {
-            width: 478.143px;
-            height: 44.678px;
+        .certificate-word img {
+            width: 500px;
+            height: auto;
             margin: 28px auto 0 auto;
         }
 
-        .certificate-word-completion {
-            width: 403.758px;
-            height: 11.332px;
+        .certificate-word-completion img {
+            width: 430px;
+            height: auto;
             margin: 16px auto 0 auto;
         }
 
@@ -161,8 +151,9 @@
             top: -30px;
             left: 8%;
             font-family: 'MinionPro-Bold';
-            font-size: 22px;
+            font-size: 26px;
             z-index: 5;
+            color: #414142;
         }
 
         .rectangle-right {
@@ -206,7 +197,7 @@
             line-height: 0px;
             margin-top: 50px;
             letter-spacing: 2px;
-            font-size: 25px;
+            font-size: 23px;
             font-weight: 100;
         }
 
@@ -219,7 +210,7 @@
 
         .course-name {
             font-family: 'MinionPro-Semibold';
-            font-size: 44.73px;
+            font-size: 53px;
             line-height: 0px;
             margin-top: 60px;
         }
@@ -229,7 +220,7 @@
             line-height: 0px;
             margin-top: 50px;
             letter-spacing: 2px;
-            font-size: 23px;
+            font-size: 27px;
             font-weight: 100;
         }
 
@@ -260,11 +251,12 @@
             bottom: 135px;
             left: 170px;
             text-align: center;
+            color: #414142;
         }
 
         .iso-certified-logo-left p:first-child {
             font-family: 'MinionPro-Bold';
-            font-size: 18px;
+            font-size: 25px;
         }
 
         .iso-certified-logo-left span {
@@ -358,31 +350,31 @@
 
         <!-- Watermarks -->
         <div class="watermark-border-left">
-            <img src="{{ public_path('images/watermark-left.png') }}" alt="left side watermark"/>
+            <img src="{{ public_path('images/Union-left.svg') }}" alt="left side watermark"/>
             
         </div>
         <div class="watermark-border-right">
-            <img src="{{ public_path('images/watermark-right.png') }}" alt="right side watermark"/>
+            <img src="{{ public_path('images/Union-right.svg') }}" alt="right side watermark"/>
         </div>
         <div class="watermark-border-upper">
-            <img src="{{ public_path('images/watermark-up.png') }}" alt="upper watermark"/>
+            <img src="{{ public_path('images/Union-top.svg') }}" alt="upper watermark"/>
         </div>
         <div class="watermark-border-down">
-            <img src="{{ public_path('images/watermark-down.png') }}" alt="down watermark"/>
+            <img src="{{ public_path('images/Union-bottom.svg') }}" alt="down watermark"/>
         </div>
 
         <!-- Center Certificate Content -->
         <div class="certificate-content">
             <div class="certificate-logo">
-                <img src="{{ public_path('images/logo.png') }}" alt="logo"/>
+                <img src="{{ public_path('images/logo.svg') }}" alt="logo"/>
             </div>
 
             <div class="certificate-word">
-                <img src="{{ public_path('images/certificate.png') }}" alt="certificate"/>
+                <img src="{{ public_path('images/certificate.svg') }}" alt="certificate"/>
             </div>
 
             <div class="certificate-word-completion">
-                <img src="{{ public_path('images/completion.png') }}" alt="completion"/>
+                <img src="{{ public_path('images/completion.svg') }}" alt="completion"/>
             </div>
 
             <div>
@@ -394,26 +386,26 @@
 
             <!-- Rectangle Images -->
             <div class="rectangle-left">
-                <img src="{{ public_path('images/rectangle-left.png') }}" alt="rectangle-left"/>
+                <img src="{{ public_path('images/rectangle-top-left.svg') }}" alt="rectangle-left"/>
                 <span class="serial-left">SL : 01</span>
             </div>
 
             <div class="rectangle-right">
-                <img src="{{ public_path('images/rectangle-right.png') }}" alt="rectangle-right"/>
+                <img src="{{ public_path('images/rectangle-top-right.svg') }}" alt="rectangle-right"/>
             </div>
 
             <div class="left-side-down-rectangle">
-                <img src="{{ public_path('images/left-side-down-rectangle.png') }}" alt="left-side-down-rectangle"/>
+                <img src="{{ public_path('images/rectangle-left.svg') }}" alt="left-side-down-rectangle"/>
             </div>
 
             <div class="right-side-down-rectangle">
-                <img src="{{ public_path('images/right-side-down-rectangle.png') }}" alt="right-side-down-rectangle"/>
+                <img src="{{ public_path('images/rectangle-right.svg') }}" alt="right-side-down-rectangle"/>
             </div>
         </div>
 
         <!-- ISO Certified Logo -->
         <div class="iso-certified-logo">
-            <img src="{{ public_path('images/iso-certified-logo.png') }}" alt="iso-certified-logo"/>
+            <img src="{{ public_path('images/iso-certified-logo.svg') }}" alt="iso-certified-logo"/>
         </div>
 
         <!-- Date of Issue -->
