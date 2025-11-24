@@ -49,7 +49,7 @@
         html, body {
             width: 100%;
             height: 100%;
-            background: #F4F2E5;
+            background:rgb(255, 255, 255);
         }
 
         body {
@@ -73,6 +73,7 @@
        left: -2px;
        transform: translateY(-50%);
        opacity: 0.8;
+       visibility: hidden;
        }
 
        .watermark-border-right {
@@ -83,6 +84,7 @@
        width: 150px;
        height: 460px;
        opacity: 0.8;
+       visibility: hidden;
        }
 
        .watermark-border-upper {
@@ -92,6 +94,7 @@
         transform: translateX(-50%);
         width: 470px;
         height: 140px;
+        visibility: hidden;
        }
 
      .watermark-border-down {
@@ -101,6 +104,7 @@
       transform: translateX(-50%);
       width: 470px;
       height: 140px;
+      visibility: hidden;
 
       }
 
@@ -128,18 +132,21 @@
             width: 242.839px;
             height: 78.981px;
             margin: auto;
+            visibility: hidden;
         }
 
         .certificate-word {
             width: 478.143px;
             height: 44.678px;
             margin: 28px auto 0 auto;
+            visibility: hidden;
         }
 
         .certificate-word-completion {
             width: 403.758px;
             height: 11.332px;
             margin: 16px auto 0 auto;
+            visibility: hidden;
         }
 
         /* Rectangle Images */
@@ -163,6 +170,10 @@
             font-family: 'MinionPro-Bold';
             font-size: 22px;
             z-index: 5;
+        }
+        .serial-left .hide-text {
+            visibility: hidden;
+            opacity: 0;
         }
 
         .rectangle-right {
@@ -191,6 +202,7 @@
             opacity: 1;
             width: 193.601px;
             height: 193.281px;
+            visibility: hidden;
         }
 
         /* Text Styles */
@@ -209,11 +221,14 @@
             font-size: 25px;
             font-weight: 100;
         }
+        .student-id .hide-text{
+            visibility: hidden;
+        }
 
         .student-id span {
             font-size: 22px;
-            font-family: 'MinionPro-Bold';
-            font-weight: 400;
+            font-family: 'MinionPro-Semibold';
+            font-weight: 500;
             margin: 0 10px;
         }
 
@@ -232,7 +247,9 @@
             font-size: 23px;
             font-weight: 100;
         }
-
+        .course-duration .hide-text{
+            visibility: hidden;
+        }
         .course-duration span {
             font-family: 'MinionPro-Bold';
             font-weight: 400;
@@ -253,6 +270,7 @@
             width: 141.32px;
             height: 125.67px;
             opacity: 1;
+            visibility: hidden;
         }
 
         .iso-certified-logo-left {
@@ -273,6 +291,7 @@
             height: 2px;
             background-color: #B73332;
             margin: 10px auto 5px;
+            visibility: hidden;
         }
 
         .iso-certified-logo-left p:last-child {
@@ -280,6 +299,7 @@
             font-size: 18px;
             color: #B73332;
             margin-top: -7px;
+            visibility: hidden;
         }
 
         /* Contact Info */
@@ -295,6 +315,7 @@
             font-size: 16px;
             margin: 0 0;
             font-weight: 100;
+            visibility: hidden;
         }
 
         .contact-info .icon {
@@ -323,6 +344,7 @@
             height: 51.862px;
             margin-bottom: 0;
             opacity: 1;
+            visibility: hidden;
         }
 
         .authorized-signature span {
@@ -331,12 +353,14 @@
             height: 2px;
             background-color: #B73332;
             margin: 10px auto 5px;
+            visibility: hidden;
         }
 
         .authorized-signature p {
             font-family: 'MinionPro-Regular';
             font-size: 18px;
             color: #B73332;
+            visibility: hidden;
         }
 
         /* QR Code */
@@ -349,6 +373,7 @@
         .qr-code img {
             width: 64.17px;
             height: 64.17px;
+            visibility: hidden;
         }
     </style>
     <title>{{ $title }}</title>
@@ -387,15 +412,15 @@
 
             <div>
                 <p class="user-name">Abdullah Al Mamun</p>
-                <p class="student-id">bearing student ID: <span>AT-0275</span> has successfully completed the</p>
+                <p class="student-id"><span class="hide-text">bearing student ID:</span> <span>AT-0275</span> <span class="hide-text">has successfully completed the</span></p>
                 <p class="course-name">Professional Graphic Design</p>
-                <p class="course-duration">conducted from <span>January 2025 to May 2025</span></p>
+                <p class="course-duration"><span class="hide-text">conducted from </span><span>January 2025 to May 2025</span></p>
             </div>
 
             <!-- Rectangle Images -->
             <div class="rectangle-left">
                 <img src="{{ public_path('images/rectangle-left.png') }}" alt="rectangle-left"/>
-                <span class="serial-left">SL : 01</span>
+                <span class="serial-left"><span class="hide-text">SL : </span>01</span>
             </div>
 
             <div class="rectangle-right">
